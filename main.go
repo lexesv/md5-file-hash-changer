@@ -19,7 +19,7 @@ import (
 )
 
 type FlagsX struct {
-	Path string `short:"p" long:"path" description:"Path to files"`
+	Path string `short:"p" long:"path" description:"Path to files. Example: --path=files/*.jpg"`
 	Help bool   `short:"h" long:"help" description:"Show this help message"`
 }
 
@@ -30,6 +30,12 @@ var (
 func main() {
 	// Flags
 	parser := flags.NewParser(Flags, flags.PrintErrors)
+	parser.LongDescription = `
+===================================
+MD5 hash file changer written in Go
+https://github.com/lexesv/md5-file-hash-changer
+===================================`
+	parser.Usage = "[OPTIONS]"
 	_, err := parser.ParseArgs(os.Args)
 	if Flags.Path == "" || Flags.Help {
 		var b bytes.Buffer
