@@ -7,6 +7,10 @@ MD5 hash file changer written in Go
  
 ``./md5c --path=files/*.jpg``
 
+or single file
+
+``md5c -p video.mp4``
+
 #### License
  
 The MIT License (MIT)
