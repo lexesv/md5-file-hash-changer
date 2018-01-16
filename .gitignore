@@ -2,3 +2,4 @@ push
 bin
 build
 .idea
+.gitignore
