@@ -9,7 +9,7 @@ MD5 hash file changer written in Go
 
 or single file
 
-``./md5c -p video.mp4``
+``./md5c --path=video.mp4``
 
 #### License
  
