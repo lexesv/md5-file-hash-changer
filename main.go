@@ -19,7 +19,7 @@ import (
 )
 
 type FlagsX struct {
-	Path string `short:"p" long:"path" description:"Path to files. Example: --path=files/*.jpg"`
+	Path string `long:"path" description:"Path to files. Example: --path=files/*.jpg"`
 	Help bool   `short:"h" long:"help" description:"Show this help message"`
 }
 
@@ -42,7 +42,6 @@ https://github.com/lexesv/md5-file-hash-changer
 		parser.WriteHelp(&b)
 		fmt.Println(b.String())
 	}
-
 	files, err := filepath.Glob(Flags.Path)
 	if err != nil {
 		LogFatal(err)
@@ -60,7 +59,9 @@ https://github.com/lexesv/md5-file-hash-changer
 		if err != nil {
 			LogFatal(err)
 		}
-		b := make([]byte, Random(4, 16))
+		b := make([]byte, 1)
+		rand.Seed(time.Now().UTC().UnixNano())
+		rand.Read(b)
 		fd.Write(b)
 		fd.Close()
 		fd, _ = os.OpenFile(file, os.O_RDONLY, info.Mode())
