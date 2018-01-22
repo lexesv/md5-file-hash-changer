@@ -37,6 +37,9 @@ https://github.com/lexesv/md5-file-hash-changer
 ===================================`
 	parser.Usage = "[OPTIONS]"
 	_, err := parser.ParseArgs(os.Args)
+	if err != nil {
+		LogFatal(err)
+	}
 	if Flags.Path == "" || Flags.Help {
 		var b bytes.Buffer
 		parser.WriteHelp(&b)
