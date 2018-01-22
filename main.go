@@ -44,6 +44,7 @@ https://github.com/lexesv/md5-file-hash-changer
 		var b bytes.Buffer
 		parser.WriteHelp(&b)
 		fmt.Println(b.String())
+		os.Exit(1)
 	}
 	files, err := filepath.Glob(Flags.Path)
 	if err != nil {
