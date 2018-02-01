@@ -1,5 +1,6 @@
 push
 bin
 build
+md5c
 .idea
 .gitignore
